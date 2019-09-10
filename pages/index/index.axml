@@ -1,0 +1,31 @@
+<!-- 小程序收藏组件，更多高级用法请参考文档：https://docs.alipay.com/mini/component/component-favorite -->
+<favorite>收藏小程序，下次使用更方便</favorite>
+<view class="container">
+  <text class="title">翻译进行时</text>
+  <view class="select-lang">
+    <view class="lang from-lang">
+      <picker onChange="bindFromPickerChange" value="{{index}}" range="{{columns}}">
+        <view>{{fromLang.text}}</view>
+      </picker>
+    </view>
+    <view class="toggle-lang" bindtap="toggleLang">切换</view>
+    <view class="lang to-lang">
+      <picker onChange="bindToPickerChange" value="{{index}}" range="{{columns}}">
+        <view>{{toLang.text}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="textarea-wrapper">
+    <textarea maxlength="-1" controlled="true" class="textarea" placeholder="在此输入你要翻译的内容" value="{{origin}}" onInput='changeOrigin'>
+    </textarea>
+  </view>
+  <view class="btn-group">
+    <view class="btn confirm" onTap="confirm">确认</view>
+    <view class="btn reset" onTap="reset">重置</view>
+  </view>
+  <view class="result">
+    <view a:for="{{result}}" a:key="{{index}}">
+       {{item.dst}}
+    </view>
+  </view>
+</view>
